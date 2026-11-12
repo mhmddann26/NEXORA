@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Solace Smart Ring — Health, Quietly Measured</title>
+<!-- Tailwind CSS v3 with Forms & Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans for UI & Instrument Serif / Cormorant for luxury display -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'serif'],
+          },
+          colors: {
+            brand: {
+              50: '#FBFBFB',
+              100: '#F4F4F6',
+              200: '#EAEBEF',
+              300: '#D5D7DF',
+              400: '#9B9EAE',
+              500: '#686B7C',
+              800: '#1C1D22',
+              900: '#111215',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="typography">
+    .font-editorial {
+      font-family: 'Instrument Serif', Georgia, serif;
+    }
+  </style>
+<style data-purpose="decorations">
+    /* Subtle metallic ring sheen animations */
+    .sheen-glow {
+      background: radial-gradient(circle at 50% 40%, rgba(255,255,255,0.8) 0%, rgba(240,242,245,0.4) 60%, rgba(255,255,255,0) 100%);
+    }
+    .dark-sheen {
+      background: radial-gradient(circle at 50% 50%, #2a2e36 0%, #111215 75%);
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="bg-[#F8F9FA] text-[#19191C] font-sans antialiased selection:bg-neutral-900 selection:text-white">
+<!-- BEGIN: MainHeader -->
+<header class="w-full sticky top-0 z-50 bg-[#F8F9FA]/80 backdrop-blur-md border-b border-black/[0.04]">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center gap-2.5 group" href="#">
+<svg class="w-6 h-6 text-black transition-transform duration-300 group-hover:scale-105" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<circle cx="12" cy="12" r="4.5"></circle>
+<circle cx="12" cy="12" fill="currentColor" r="1.5"></circle>
+</svg>
+<span class="text-xl font-medium tracking-tight text-neutral-900">solace</span>
+</a>
+<!-- Center Navigation Bar -->
+<nav class="hidden md:flex items-center bg-white/70 border border-neutral-200/70 px-4 py-1.5 rounded-full shadow-sm shadow-neutral-100">
+<a class="px-4 py-1 text-xs tracking-wide font-medium text-neutral-600 hover:text-black transition-colors" href="#shop">Shop</a>
+<a class="px-4 py-1 text-xs tracking-wide font-medium text-neutral-600 hover:text-black transition-colors" href="#features">Features</a>
+<a class="px-4 py-1 text-xs tracking-wide font-medium text-neutral-600 hover:text-black transition-colors" href="#how-it-works">How It Works</a>
+<a class="px-4 py-1 text-xs tracking-wide font-medium text-neutral-600 hover:text-black transition-colors" href="#about">About</a>
+</nav>
+<!-- Right Action Button -->
+<div class="flex items-center gap-4">
+<a class="bg-black hover:bg-neutral-800 text-white text-xs font-medium px-5 py-2.5 rounded-full transition-all duration-200 hover:shadow-md" href="#shop">
+          Buy Now
+        </a>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<main>
+<!-- BEGIN: HeroSection -->
+<section class="relative pt-8 pb-20 overflow-hidden bg-gradient-to-b from-[#F8F9FA] via-[#ECEEF2] to-[#F8F9FA]">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Hero Header Row -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pt-4 pb-12">
+<div>
+<h1 class="text-6xl md:text-8xl font-normal tracking-tight leading-[0.95] text-neutral-900">
+              solace <br/>
+<span class="text-neutral-400 font-light italic font-editorial">smart ring</span>
+</h1>
+</div>
+<p class="max-w-xs text-sm text-neutral-600 leading-relaxed font-normal">
+            Your health, quietly measured. A titanium smart ring that tracks sleep, recovery and activity, day and night.
+          </p>
+</div>
+<!-- Center Ring Visual & Feature Callouts Container -->
+<div class="relative w-full max-w-4xl mx-auto min-h-[460px] md:min-h-[580px] flex items-center justify-center my-6">
+<!-- Outer circular ambient glow -->
+<div class="absolute w-[360px] md:w-[480px] h-[360px] md:h-[480px] rounded-full sheen-glow filter blur-2xl opacity-80 pointer-events-none"></div>
+<!-- Central Titanium Ring Graphic / SVG Component -->
+<div class="relative z-10 w-72 h-72 md:w-96 md:h-96 flex items-center justify-center group">
+<svg class="w-full h-full drop-shadow-2xl" fill="none" viewbox="0 0 400 400">
+<!-- Definitions for Ring Gradient & Metallic Reflections -->
+<defs>
+<lineargradient id="ringOuter" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#E1E4EA"></stop>
+<stop offset="35%" stop-color="#FFFFFF"></stop>
+<stop offset="65%" stop-color="#999EA8"></stop>
+<stop offset="100%" stop-color="#D2D6DC"></stop>
+</lineargradient>
+<lineargradient id="ringInner" x1="0%" x2="100%" y1="100%" y2="0%">
+<stop offset="0%" stop-color="#111216"></stop>
+<stop offset="40%" stop-color="#212429"></stop>
+<stop offset="100%" stop-color="#141518"></stop>
+</lineargradient>
+<radialgradient cx="50%" cy="50%" id="sensorGreen" r="50%">
+<stop offset="0%" stop-color="#34D399"></stop>
+<stop offset="100%" stop-color="#059669" stop-opacity="0"></stop>
+</radialgradient>
+<radialgradient cx="50%" cy="50%" id="sensorRed" r="50%">
+<stop offset="0%" stop-color="#F87171"></stop>
+<stop offset="100%" stop-color="#DC2626" stop-opacity="0"></stop>
+</radialgradient>
+</defs>
+<!-- Outer Titanium Chasis -->
+<circle cx="200" cy="200" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.18))" r="160" stroke="url(#ringOuter)" stroke-width="26"></circle>
+<!-- Subtle Ring Edges bevel -->
+<circle cx="200" cy="200" r="173" stroke="#FFFFFF" stroke-opacity="0.6" stroke-width="1.5"></circle>
+<circle cx="200" cy="200" r="147" stroke="#6B7280" stroke-opacity="0.3" stroke-width="1.5"></circle>
+<!-- Inner Sensor Ceramic Core Ring -->
+<circle cx="200" cy="200" fill="url(#ringInner)" r="140"></circle>
+<!-- Biosensor Hardware Nodes (LEDs and Micro-sensors) -->
+<!-- Sensor 1: PPG Green LED -->
+<rect fill="#1e2229" height="12" rx="3" stroke="#374151" width="24" x="188" y="305"></rect>
+<circle cx="195" cy="311" fill="#10B981" filter="drop-shadow(0 0 6px #10B981)" r="3.5"></circle>
+<circle cx="205" cy="311" fill="#EF4444" filter="drop-shadow(0 0 6px #EF4444)" r="3.5"></circle>
+<!-- Sensor 2: Left Infrared Sensor -->
+<rect fill="#1c2027" height="10" rx="2" stroke="#374151" transform="rotate(-30 135 280)" width="18" x="135" y="280"></rect>
+<circle cx="140" cy="285" fill="#6EE7B7" filter="drop-shadow(0 0 4px #34D399)" r="2.5"></circle>
+<!-- Sensor 3: Right Temperature Node -->
+<rect fill="#1c2027" height="10" rx="2" stroke="#374151" transform="rotate(30 250 270)" width="18" x="250" y="270"></rect>
+<circle cx="260" cy="275" fill="#F87171" filter="drop-shadow(0 0 4px #F87171)" r="2.5"></circle>
+<!-- Printed Circuit Traces subtle accents inside the ring -->
+<path d="M 155 295 Q 200 330 245 295" fill="none" stroke="#374151" stroke-dasharray="2 3" stroke-width="1.5"></path>
+<path d="M 170 300 L 230 300" fill="none" stroke="#374151" stroke-width="1"></path>
+</svg>
+</div>
+</div>
+<!-- Floating Interactive Metric Pills (Bottom Hero Grid) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-3 max-w-5xl mx-auto pt-6">
+<!-- Sleep Tracking Card (Expanded by default) -->
+<div class="md:col-span-1 bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-sm border border-neutral-200/80 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-xs font-semibold uppercase tracking-wider text-neutral-800">Sleep Tracking</span>
+</div>
+<p class="text-[11px] text-neutral-500 leading-snug">
+                Understand every stage of your night, from deep sleep to REM, and wake up to a simple score.
+              </p>
+</div>
+<div class="flex flex-wrap gap-1.5 mt-3 pt-2 border-t border-neutral-100">
+<span class="text-[10px] bg-neutral-100 px-2 py-0.5 rounded text-neutral-700 font-medium">Sleep Stages</span>
+<span class="text-[10px] bg-neutral-100 px-2 py-0.5 rounded text-neutral-700 font-medium">Sleep Score</span>
+<span class="text-[10px] bg-neutral-100 px-2 py-0.5 rounded text-neutral-700 font-medium">Smart Alarm</span>
+</div>
+</div>
+<!-- Heart & Recovery -->
+<div class="bg-white/70 backdrop-blur-sm rounded-2xl p-4 border border-neutral-200/60 hover:bg-white hover:border-neutral-300 transition-all flex items-center justify-between cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-700">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"></path></svg>
+</div>
+<span class="text-xs font-semibold text-neutral-800">Heart &amp; Recovery</span>
+</div>
+<span class="text-neutral-400 group-hover:text-neutral-900 transition-colors text-sm font-light">+</span>
+</div>
+<!-- Activity & Fitness -->
+<div class="bg-white/70 backdrop-blur-sm rounded-2xl p-4 border border-neutral-200/60 hover:bg-white hover:border-neutral-300 transition-all flex items-center justify-between cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-700">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"></path></svg>
+</div>
+<span class="text-xs font-semibold text-neutral-800">Activity &amp; Fitness</span>
+</div>
+<span class="text-neutral-400 group-hover:text-neutral-900 transition-colors text-sm font-light">+</span>
+</div>
+<!-- Women's Health -->
+<div class="bg-white/70 backdrop-blur-sm rounded-2xl p-4 border border-neutral-200/60 hover:bg-white hover:border-neutral-300 transition-all flex items-center justify-between cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-700">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"></path></svg>
+</div>
+<span class="text-xs font-semibold text-neutral-800">Women's Health</span>
+</div>
+<span class="text-neutral-400 group-hover:text-neutral-900 transition-colors text-sm font-light">+</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: BrandPartnerBar -->
+<section class="border-y border-neutral-200/70 bg-white py-8" data-purpose="partners">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-wrap items-center justify-between gap-8 opacity-65 grayscale hover:grayscale-0 transition-all duration-300">
+<div class="flex items-center gap-2 font-semibold tracking-tight text-neutral-800 text-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-neutral-900"></span> acme
+          </div>
+<div class="flex items-center gap-2 font-medium tracking-wider text-neutral-700 text-sm">
+<div class="w-5 h-2.5 rounded-full border border-neutral-700"></div>
+</div>
+<div class="flex items-center gap-1.5 font-bold tracking-tight text-neutral-800 text-sm">
+<span class="font-serif italic text-lg">&amp;</span> kanba
+          </div>
+<div class="flex items-center gap-1.5 font-semibold tracking-tight text-neutral-800 text-sm">
+<span class="text-xs">⊚</span> goldline
+          </div>
+<div class="flex items-center gap-1.5 tracking-widest font-black text-neutral-800 text-xs">
+            ▲ ASGARDIA
+          </div>
+<div class="flex items-center font-bold tracking-tight text-neutral-900 text-sm">
+            OUTOSIA
+          </div>
+<div class="flex items-center gap-1.5 font-medium tracking-normal text-neutral-800 text-sm">
+<span class="w-3.5 h-3.5 rounded-full border-2 border-neutral-800"></span> circle
+          </div>
+</div>
+</div>
+</section>
+<!-- END: BrandPartnerBar -->
+<!-- BEGIN: MissionAndFinishesSection -->
+<section class="py-24 bg-[#F8F9FA]" data-purpose="mission" id="about">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Mission Header Row -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
+<div class="lg:col-span-3">
+<span class="text-xs uppercase tracking-widest font-medium text-neutral-400">Our Mission</span>
+</div>
+<div class="lg:col-span-9 max-w-3xl">
+<h2 class="text-3xl md:text-5xl font-light text-neutral-900 leading-snug tracking-tight mb-8">
+              We believe health tech should <strong class="font-semibold text-black">disappear into your day.</strong> No screens, no buzzing, just a beautifully crafted ring that understands your body and gives you calm, clear guidance.
+            </h2>
+<a class="inline-flex items-center px-5 py-2.5 rounded-full border border-neutral-300 text-xs font-medium text-neutral-800 hover:bg-neutral-900 hover:text-white hover:border-black transition-all" href="#how-it-works">
+              Learn more
+            </a>
+</div>
+</div>
+<!-- 4-Column Ring Finishes Showcase -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+<!-- Silver Finish Card -->
+<div class="group bg-white rounded-3xl p-6 border border-neutral-200/80 hover:border-neutral-400 transition-all duration-300 flex flex-col justify-between min-h-[300px]">
+<div class="flex items-center justify-between text-neutral-400 text-xs font-mono">
+<span>[ silver ]</span>
+<span class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+</div>
+<div class="py-10 flex items-center justify-center">
+<!-- Silver Ring Minimal Graphic -->
+<div class="w-32 h-32 rounded-full border-[14px] border-neutral-300 shadow-inner group-hover:scale-105 transition-transform duration-300 flex items-center justify-center relative bg-gradient-to-tr from-neutral-200 via-white to-neutral-300">
+<div class="w-20 h-20 rounded-full bg-[#F8F9FA] shadow-sm flex items-center justify-center">
+<div class="w-4 h-1.5 rounded-sm bg-neutral-800/40"></div>
+</div>
+</div>
+</div>
+<div class="text-xs text-neutral-500 font-medium text-center">Natural Titanium</div>
+</div>
+<!-- Black Finish Card -->
+<div class="group bg-white rounded-3xl p-6 border border-neutral-200/80 hover:border-neutral-400 transition-all duration-300 flex flex-col justify-between min-h-[300px]">
+<div class="flex items-center justify-between text-neutral-400 text-xs font-mono">
+<span>[ black ]</span>
+<span class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+</div>
+<div class="py-10 flex items-center justify-center">
+<!-- Black Matte Ring Minimal Graphic -->
+<div class="w-32 h-32 rounded-full border-[14px] border-neutral-900 shadow-inner group-hover:scale-105 transition-transform duration-300 flex items-center justify-center relative bg-gradient-to-tr from-neutral-800 via-neutral-900 to-black">
+<div class="w-20 h-20 rounded-full bg-[#F8F9FA] shadow-sm flex items-center justify-center">
+<div class="w-4 h-1.5 rounded-sm bg-neutral-800"></div>
+</div>
+</div>
+</div>
+<div class="text-xs text-neutral-500 font-medium text-center">Matte Black DLC</div>
+</div>
+<!-- Gold Finish Card -->
+<div class="group bg-white rounded-3xl p-6 border border-neutral-200/80 hover:border-neutral-400 transition-all duration-300 flex flex-col justify-between min-h-[300px]">
+<div class="flex items-center justify-between text-neutral-400 text-xs font-mono">
+<span>[ gold ]</span>
+<span class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+</div>
+<div class="py-10 flex items-center justify-center">
+<!-- Gold Ring Minimal Graphic -->
+<div class="w-32 h-32 rounded-full border-[14px] border-amber-300 shadow-inner group-hover:scale-105 transition-transform duration-300 flex items-center justify-center relative bg-gradient-to-tr from-yellow-500 via-amber-200 to-yellow-600">
+<div class="w-20 h-20 rounded-full bg-[#F8F9FA] shadow-sm flex items-center justify-center">
+<div class="w-4 h-1.5 rounded-sm bg-amber-900/40"></div>
+</div>
+</div>
+</div>
+<div class="text-xs text-neutral-500 font-medium text-center">Mirror Champagne Gold</div>
+</div>
+<!-- Rose / Lifestyle Finish Card -->
+<div class="group bg-white rounded-3xl p-6 border border-neutral-200/80 hover:border-neutral-400 transition-all duration-300 flex flex-col justify-between min-h-[300px]">
+<div class="flex items-center justify-between text-neutral-400 text-xs font-mono">
+<span>[ lifestyle ]</span>
+<span class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+</div>
+<div class="py-10 flex items-center justify-center">
+<!-- Deep Rose / Bronze Minimal Graphic -->
+<div class="w-32 h-32 rounded-full border-[14px] border-rose-300 shadow-inner group-hover:scale-105 transition-transform duration-300 flex items-center justify-center relative bg-gradient-to-tr from-rose-700 via-rose-300 to-rose-900">
+<div class="w-20 h-20 rounded-full bg-[#F8F9FA] shadow-sm flex items-center justify-center">
+<div class="w-4 h-1.5 rounded-sm bg-rose-950/40"></div>
+</div>
+</div>
+</div>
+<div class="text-xs text-neutral-500 font-medium text-center">Rose Bronze Gloss</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: MissionAndFinishesSection -->
+<!-- BEGIN: EditorialShowcaseSection -->
+<section class="py-24 relative overflow-hidden bg-white" data-purpose="flagship-hero">
+<div class="max-w-7xl mx-auto px-6 relative">
+<span class="text-xs uppercase tracking-widest font-mono text-neutral-400 block mb-6">Flagship</span>
+<!-- Giant Backdrop Typography -->
+<div class="relative w-full flex items-center justify-center select-none overflow-hidden py-12 md:py-24">
+<h2 class="text-[120px] sm:text-[180px] md:text-[270px] lg:text-[340px] font-serif tracking-tight text-neutral-900 font-normal leading-none pointer-events-none transform -translate-y-4">
+            solace
+          </h2>
+<!-- Overlay Smart Ring Hero Graphic -->
+<div class="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+<div class="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full border-[22px] border-neutral-900 shadow-2xl relative bg-[#131518] flex items-center justify-center ring-1 ring-white/20">
+<!-- Sensor Glow Lights inside Ring Inner Diameter -->
+<div class="absolute bottom-4 flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_12px_#34d399]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_12px_#ef4444]"></span>
+<span class="w-2 h-2 rounded-full bg-emerald-300"></span>
+</div>
+<!-- Inner Hollow -->
+<div class="w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full bg-white shadow-inner flex items-center justify-center"></div>
+</div>
+</div>
+<!-- Floating Buy Now / Gen 2 Badge on Left Side -->
+<div class="absolute bottom-6 left-2 sm:left-12 z-20 bg-white/90 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-neutral-200/80 shadow-lg pointer-events-auto max-w-[200px]">
+<div class="flex items-center justify-between text-[11px] text-neutral-400 font-mono mb-1">
+<span>[ for everyday ]</span>
+<span>↗</span>
+</div>
+<h3 class="text-sm font-bold text-neutral-900">Solace Ring Gen 2</h3>
+<div class="flex items-center justify-between mt-3 pt-2 border-t border-neutral-100">
+<span class="text-base font-semibold text-neutral-900">299 $</span>
+<a class="bg-black text-white text-[11px] font-medium px-3 py-1.5 rounded-full hover:bg-neutral-800 transition-colors" href="#shop">
+                Buy now
+              </a>
+</div>
+</div>
+</div>
+<!-- Key Feature Pills Below Ring -->
+<div class="flex items-center justify-center gap-2.5 mt-8">
+<span class="px-4 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 text-xs font-medium text-neutral-700">Titanium</span>
+<span class="px-4 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 text-xs font-medium text-neutral-700">7-Day Battery</span>
+<span class="px-4 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 text-xs font-medium text-neutral-700">Waterproof</span>
+</div>
+</div>
+</section>
+<!-- END: EditorialShowcaseSection -->
+<!-- BEGIN: ValuePropositionAndFeatures -->
+<section class="py-24 bg-[#F8F9FA]" data-purpose="features" id="features">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Big statement -->
+<div class="max-w-2xl mb-16">
+<h2 class="text-2xl sm:text-3xl md:text-4xl font-normal text-neutral-900 tracking-tight leading-snug">
+            We help you understand your body by combining <strong class="font-semibold">continuous health tracking</strong> with clear, personal insights you can act on every day.
+          </h2>
+</div>
+<!-- 4 Minimal Icon Feature Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1: Sleep Intelligence -->
+<div class="bg-white rounded-3xl p-8 border border-neutral-200/70 hover:border-neutral-300 transition-all flex flex-col items-center justify-center text-center min-h-[220px]">
+<div class="w-12 h-12 flex items-center justify-center text-neutral-800 mb-6">
+<!-- Geometric snowflake/asterisk icon -->
+<svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"></path>
+<circle cx="12" cy="12" r="3" stroke-dasharray="2 2"></circle>
+</svg>
+</div>
+<h3 class="text-sm font-semibold text-neutral-900 tracking-tight">Sleep Intelligence</h3>
+</div>
+<!-- Card 2: Recovery Insights -->
+<div class="bg-white rounded-3xl p-8 border border-neutral-200/70 hover:border-neutral-300 transition-all flex flex-col items-center justify-center text-center min-h-[220px]">
+<div class="w-12 h-12 flex items-center justify-center text-neutral-800 mb-6">
+<!-- Asterisk icon -->
+<svg class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"></path>
+</svg>
+</div>
+<h3 class="text-sm font-semibold text-neutral-900 tracking-tight">Recovery Insights</h3>
+</div>
+<!-- Card 3: Activity Tracking -->
+<div class="bg-white rounded-3xl p-8 border border-neutral-200/70 hover:border-neutral-300 transition-all flex flex-col items-center justify-center text-center min-h-[220px]">
+<div class="w-12 h-12 flex items-center justify-center text-neutral-800 mb-6">
+<!-- Sunburst rosette icon -->
+<svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="5"></circle>
+<path d="M12 1v3M12 20v3M1 12h3M20 12h3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path>
+</svg>
+</div>
+<h3 class="text-sm font-semibold text-neutral-900 tracking-tight">Activity Tracking</h3>
+</div>
+<!-- Card 4: Seven-Day Battery -->
+<div class="bg-white rounded-3xl p-8 border border-neutral-200/70 hover:border-neutral-300 transition-all flex flex-col items-center justify-center text-center min-h-[220px]">
+<div class="w-12 h-12 flex items-center justify-center text-neutral-800 mb-6">
+<!-- Minimal tech cross icon -->
+<svg class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M6 9l6 3 6-3M6 15l6 3 6-3M12 3v9"></path>
+</svg>
+</div>
+<h3 class="text-sm font-semibold text-neutral-900 tracking-tight">Seven-Day Battery</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ValuePropositionAndFeatures -->
+<!-- BEGIN: HowItWorksAppShowcase -->
+<section class="py-24 bg-[#ECEEF2]/70 border-t border-neutral-200/60" data-purpose="app-showcase" id="how-it-works">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Header Text -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16">
+<div class="lg:col-span-4">
+<span class="text-xs uppercase tracking-wider text-neutral-500">
+              Let us be your<br/>everyday health companion
+            </span>
+</div>
+<div class="lg:col-span-8">
+<h2 class="text-3xl sm:text-4xl font-normal text-neutral-900 tracking-tight">
+              Know your body with data, not guesswork.<br/>
+<span class="font-semibold">How Solace works.</span>
+</h2>
+</div>
+</div>
+<!-- 3 Step Mockup Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Step 1: Sizing Kit -->
+<div class="flex flex-col">
+<div class="bg-gradient-to-b from-neutral-200 to-neutral-300 rounded-3xl p-6 min-h-[380px] flex flex-col justify-center items-center shadow-inner relative overflow-hidden">
+<!-- App Card Mockup -->
+<div class="w-full max-w-[240px] bg-white rounded-2xl p-4 shadow-xl border border-neutral-100">
+<div class="text-[10px] uppercase font-bold text-neutral-400 mb-2">Order your sizing kit</div>
+<div class="h-2 w-16 bg-neutral-200 rounded mb-4"></div>
+<div class="space-y-2 mb-4">
+<div class="h-8 bg-neutral-50 rounded border border-neutral-200 flex items-center px-3 text-[11px] text-neutral-600 justify-between">
+<span>Free sample kit - Size 6-13</span>
+<span class="text-neutral-400">✓</span>
+</div>
+<div class="h-8 bg-neutral-50 rounded border border-neutral-200 flex items-center px-3 text-[11px] text-neutral-400">
+                    Enter street address...
+                  </div>
+</div>
+<div class="w-full py-2 bg-black text-white text-[11px] font-medium text-center rounded-xl">
+                  Order free kit
+                </div>
+</div>
+</div>
+<!-- Step Info -->
+<div class="pt-5">
+<h3 class="text-base font-bold text-neutral-900">Find your perfect fit</h3>
+<p class="text-xs text-neutral-500 mt-1 leading-relaxed">
+                Get a free sizing kit at home, wear it for a day and pick the size that feels right.
+              </p>
+</div>
+</div>
+<!-- Step 2: Wear It Day and Night -->
+<div class="flex flex-col">
+<div class="bg-gradient-to-b from-neutral-200 to-neutral-300 rounded-3xl p-6 min-h-[380px] flex flex-col justify-center items-center shadow-inner relative overflow-hidden">
+<!-- App Card Mockup: Daily Metrics -->
+<div class="w-full max-w-[240px] bg-white/95 rounded-2xl p-4 shadow-xl border border-neutral-100 space-y-2.5">
+<!-- Sleep Score Metric -->
+<div class="flex items-center justify-between p-2 rounded-xl bg-neutral-50 border border-neutral-100">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+<span class="text-xs font-medium text-neutral-700">Sleep score</span>
+</div>
+<span class="text-base font-bold text-neutral-900">84</span>
+</div>
+<!-- Readiness Score Metric -->
+<div class="flex items-center justify-between p-2 rounded-xl bg-neutral-50 border border-neutral-100">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="text-xs font-semibold text-neutral-800">Readiness</span>
+</div>
+<span class="text-base font-bold text-neutral-900">92</span>
+</div>
+<!-- Resting Heart Rate -->
+<div class="flex items-center justify-between p-2 rounded-xl bg-neutral-50 border border-neutral-100">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-rose-500"></span>
+<span class="text-xs font-medium text-neutral-700">Resting heart rate</span>
+</div>
+<span class="text-base font-bold text-neutral-900">58 <span class="text-[10px] font-normal text-neutral-400">bpm</span></span>
+</div>
+</div>
+</div>
+<!-- Step Info -->
+<div class="pt-5">
+<h3 class="text-base font-bold text-neutral-900">Wear it day and night</h3>
+<p class="text-xs text-neutral-500 mt-1 leading-relaxed">
+                The ring tracks sleep, heart rate and activity automatically, with up to seven days of battery.
+              </p>
+</div>
+</div>
+<!-- Step 3: Act on Clear Insights -->
+<div class="flex flex-col">
+<div class="bg-gradient-to-b from-neutral-200 to-neutral-300 rounded-3xl p-6 min-h-[380px] flex flex-col justify-center items-center shadow-inner relative overflow-hidden">
+<!-- App Card Mockup: Insight Advice -->
+<div class="w-full max-w-[240px] bg-white rounded-2xl p-4 shadow-xl border border-neutral-100">
+<div class="text-[10px] font-mono text-neutral-400 mb-2">Daily insight</div>
+<!-- Lifestyle Photo Placeholder inside Card -->
+<div class="w-full h-24 rounded-lg bg-neutral-800 mb-3 overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-2">
+<span class="text-[10px] text-white font-medium">You slept 1h 12m longer</span>
+</div>
+</div>
+<div class="p-2 bg-emerald-50 rounded-lg border border-emerald-100 text-[10px] text-emerald-800 font-medium">
+                  Optimal recovery window reached. Great day for intensive cardio.
+                </div>
+</div>
+</div>
+<!-- Step Info -->
+<div class="pt-5">
+<h3 class="text-base font-bold text-neutral-900">Act on clear insights</h3>
+<p class="text-xs text-neutral-500 mt-1 leading-relaxed">
+                Wake up to a simple daily score and personal tips in the Solace companion app.
+              </p>
+</div>
+</div>
+</div>
+<!-- Follow-up Statement Below Cards -->
+<div class="mt-20 max-w-xl mx-auto text-center">
+<p class="text-base text-neutral-700 font-normal leading-relaxed">
+            Solace turns continuous health data into calm, personal guidance so you can sleep better, recover faster and feel your best.
+          </p>
+</div>
+</div>
+</section>
+<!-- END: HowItWorksAppShowcase -->
+<!-- BEGIN: ShopCollectionSection -->
+<section class="py-24 bg-white" data-purpose="product-catalog" id="shop">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Section Header -->
+<div class="text-center max-w-xl mx-auto mb-16">
+<span class="inline-flex items-center gap-1.5 text-[10px] uppercase font-bold tracking-widest text-amber-600 bg-amber-50 px-3 py-1 rounded-full mb-3">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> NEW COLLECTION
+          </span>
+<h2 class="text-4xl font-normal text-neutral-900 tracking-tight">Shop the Collection</h2>
+<p class="text-xs text-neutral-500 mt-2">
+            Choose your finish, your size and your style. Every Solace ring includes the app and a charging dock, with no subscription required.
+          </p>
+</div>
+<!-- 4 Moody Product Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1: Lifestyle / Golden Sunlight Runner -->
+<div class="group relative rounded-3xl overflow-hidden min-h-[420px] bg-neutral-900 text-white flex flex-col justify-between p-6 shadow-md">
+<!-- Simulated moody golden background -->
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-amber-950/40 mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-500"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-950"></div>
+<div class="relative z-10">
+<span class="text-[10px] uppercase tracking-wider text-amber-200 font-semibold bg-white/10 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                Active Life
+              </span>
+</div>
+<div class="relative z-10 pt-20">
+<h3 class="text-lg font-bold">Endurance &amp; Training</h3>
+<p class="text-xs text-neutral-300 mt-1">Advanced workout and continuous bio-sensing.</p>
+<div class="flex items-center justify-between mt-6 pt-4 border-t border-white/10">
+<span class="text-[11px] text-neutral-400">Sizes 6–13</span>
+<span class="text-xs font-semibold text-white">Explore →</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Solace Ring Gold -->
+<div class="group relative rounded-3xl overflow-hidden min-h-[420px] bg-[#101114] text-white flex flex-col justify-between p-6 shadow-md border border-neutral-800">
+<!-- Gold Ambient Halo -->
+<div class="absolute inset-0 bg-radial from-amber-500/10 via-transparent to-transparent opacity-60"></div>
+<div class="relative z-10 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-amber-400"></span>
+<span class="text-xs font-bold">Solace Ring</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-amber-300 font-medium">
+<span>★</span> 4.9
+              </div>
+</div>
+<!-- Graphic Ring Center -->
+<div class="relative z-10 py-6 flex items-center justify-center">
+<div class="w-36 h-36 rounded-full border-[14px] border-amber-400 shadow-[0_0_35px_rgba(251,191,36,0.25)] flex items-center justify-center bg-gradient-to-tr from-amber-600 via-amber-200 to-yellow-500 group-hover:scale-105 transition-transform duration-300">
+<div class="w-20 h-20 rounded-full bg-[#101114]"></div>
+</div>
+</div>
+<div class="relative z-10">
+<p class="text-xs text-neutral-400">Our signature titanium ring in a warm gold finish that pairs with any jewelry.</p>
+<div class="flex items-center gap-2 mt-3">
+<span class="text-[10px] bg-amber-400/20 text-amber-300 px-2.5 py-0.5 rounded-full font-medium">Bestseller</span>
+<span class="text-[10px] text-neutral-400">Sizes 6–13</span>
+</div>
+<div class="mt-4 pt-3 border-t border-neutral-800/80 flex items-center justify-between text-[11px] text-neutral-400">
+<span>⚡ Up to 7 days battery</span>
+<span class="text-white font-semibold">$299</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Solace Ring Matte Black -->
+<div class="group relative rounded-3xl overflow-hidden min-h-[420px] bg-[#0E0F12] text-white flex flex-col justify-between p-6 shadow-md border border-neutral-800">
+<!-- Cool Charcoal Halo -->
+<div class="absolute inset-0 bg-radial from-slate-500/10 via-transparent to-transparent opacity-50"></div>
+<div class="relative z-10 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-neutral-400"></span>
+<span class="text-xs font-bold">Solace Ring</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-neutral-300 font-medium">
+<span>★</span> 4.9
+              </div>
+</div>
+<!-- Graphic Ring Center -->
+<div class="relative z-10 py-6 flex items-center justify-center">
+<div class="w-36 h-36 rounded-full border-[14px] border-neutral-800 shadow-[0_0_35px_rgba(255,255,255,0.05)] flex items-center justify-center bg-gradient-to-tr from-neutral-900 via-neutral-700 to-black group-hover:scale-105 transition-transform duration-300">
+<div class="w-20 h-20 rounded-full bg-[#0E0F12]"></div>
+</div>
+</div>
+<div class="relative z-10">
+<p class="text-xs text-neutral-400">A bold, scratch-resistant matte finish that keeps a low profile day and night.</p>
+<div class="flex items-center gap-2 mt-3">
+<span class="text-[10px] bg-white/10 text-neutral-200 px-2.5 py-0.5 rounded-full font-medium">New Finish</span>
+<span class="text-[10px] text-neutral-400">Sizes 6–13</span>
+</div>
+<div class="mt-4 pt-3 border-t border-neutral-800/80 flex items-center justify-between text-[11px] text-neutral-400">
+<span>⚡ Up to 7 days battery</span>
+<span class="text-white font-semibold">$299</span>
+</div>
+</div>
+</div>
+<!-- Card 4: Solace Ring Classic Silver -->
+<div class="group relative rounded-3xl overflow-hidden min-h-[420px] bg-[#111216] text-white flex flex-col justify-between p-6 shadow-md border border-neutral-800">
+<div class="relative z-10 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-slate-300"></span>
+<span class="text-xs font-bold">Solace Ring</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-neutral-300 font-medium">
+<span>★</span> 5.0
+              </div>
+</div>
+<!-- Graphic Ring Center -->
+<div class="relative z-10 py-6 flex items-center justify-center">
+<div class="w-36 h-36 rounded-full border-[14px] border-neutral-300 shadow-[0_0_35px_rgba(255,255,255,0.15)] flex items-center justify-center bg-gradient-to-tr from-neutral-400 via-white to-neutral-500 group-hover:scale-105 transition-transform duration-300">
+<div class="w-20 h-20 rounded-full bg-[#111216]"></div>
+</div>
+</div>
+<div class="relative z-10">
+<p class="text-xs text-neutral-400">The classic, featherlight brushed titanium finish made for everyday wear.</p>
+<div class="flex items-center gap-2 mt-3">
+<span class="text-[10px] bg-white/10 text-neutral-200 px-2.5 py-0.5 rounded-full font-medium">Classic</span>
+<span class="text-[10px] text-neutral-400">Sizes 6–13</span>
+</div>
+<div class="mt-4 pt-3 border-t border-neutral-800/80 flex items-center justify-between text-[11px] text-neutral-400">
+<span>⚡ Up to 7 days battery</span>
+<span class="text-white font-semibold">$299</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ShopCollectionSection -->
+<!-- BEGIN: CallToActionBanner -->
+<section class="py-16 bg-[#F8F9FA]" data-purpose="cta-banner">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Large Pill / Oval Styled Container -->
+<div class="relative rounded-[40px] bg-gradient-to-b from-[#D4D8E0] via-[#C8CCD6] to-[#A4AAB8] p-8 md:p-16 overflow-hidden flex items-center justify-center shadow-xl">
+<!-- Stylized Giant Ring Silhouette centered behind card -->
+<div class="absolute w-[440px] md:w-[620px] h-[440px] md:h-[620px] rounded-full border-[42px] border-neutral-900/90 shadow-2xl flex items-center justify-center pointer-events-none">
+<div class="w-[300px] md:w-[480px] h-[300px] md:h-[480px] rounded-full border-[10px] border-neutral-800/40"></div>
+</div>
+<!-- Central White Dialog Card -->
+<div class="relative z-10 max-w-md w-full bg-white/95 backdrop-blur-md rounded-3xl p-8 text-center shadow-2xl border border-white">
+<h3 class="text-xl md:text-2xl font-normal text-neutral-900 leading-snug tracking-tight">
+              Solace helps you see the patterns behind your sleep, recovery and daily rhythm so <strong class="font-semibold">you can live with more clarity.</strong>
+</h3>
+<p class="text-xs text-neutral-500 mt-4 leading-relaxed">
+              Free shipping, free sizing kit and 30-day returns on every ring.
+            </p>
+<div class="mt-6">
+<a class="w-full inline-block bg-black hover:bg-neutral-800 text-white text-xs font-semibold py-3.5 px-6 rounded-full transition-all shadow-md" href="#shop">
+                Get 20% off today!
+              </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: CallToActionBanner -->
+</main>
+<!-- BEGIN: MainFooter -->
+<footer class="bg-white border-t border-neutral-200/80 pt-16 pb-12" data-purpose="footer">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Top Grid: Brand & Links -->
+<div class="grid grid-cols-1 md:grid-cols-6 gap-10 pb-16 border-b border-neutral-100">
+<!-- Brand Info -->
+<div class="md:col-span-2">
+<a class="flex items-center gap-2.5" href="#">
+<svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<circle cx="12" cy="12" r="4.5"></circle>
+<circle cx="12" cy="12" fill="currentColor" r="1.5"></circle>
+</svg>
+<span class="text-xl font-medium tracking-tight text-neutral-900">solace</span>
+</a>
+<p class="text-xs text-neutral-500 mt-3 max-w-xs leading-relaxed">
+            Designed for better nights and brighter days.
+          </p>
+<!-- Social Media Icons -->
+<div class="mt-6">
+<span class="text-[11px] uppercase tracking-wider font-semibold text-neutral-400 block mb-2.5">Follow us</span>
+<div class="flex items-center gap-3 text-neutral-700">
+<!-- Instagram -->
+<a aria-label="Instagram" class="w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center hover:bg-black hover:text-white transition-colors" href="#">
+<svg class="w-3.5 h-3.5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+<!-- LinkedIn -->
+<a aria-label="LinkedIn" class="w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center hover:bg-black hover:text-white transition-colors" href="#">
+<svg class="w-3.5 h-3.5" fill="currentColor" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+<!-- YouTube -->
+<a aria-label="YouTube" class="w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center hover:bg-black hover:text-white transition-colors" href="#">
+<svg class="w-3.5 h-3.5" fill="currentColor" viewbox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg>
+</a>
+<!-- X (Twitter) -->
+<a aria-label="X" class="w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center hover:bg-black hover:text-white transition-colors" href="#">
+<svg class="w-3.5 h-3.5" fill="currentColor" viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<!-- Col 1: Product -->
+<div>
+<h4 class="text-xs font-semibold text-neutral-900 tracking-wider mb-3">Product</h4>
+<ul class="space-y-2 text-xs text-neutral-500">
+<li><a class="hover:text-neutral-900 transition-colors" href="#">Solace Ring</a></li>
+<li><a class="hover:text-neutral-900 transition-colors" href="#">Solar Ring Sport</a></li>
+<li><a class="hover:text-neutral-900 transition-colors" href="#">Charging Case</a></li>
+<li><a class="hover:text-neutral-900 transition-colors" href="#">Sizing Kit</a></li>
+</ul>
+</div>
+<!-- Col 2: Features -->
+<div>
+<h4 class="text-xs font-semibold text-neutral-900 tracking-wider mb-3">Features</h4>
+<ul class="space-y-2 text-xs text-neutral-500">
+<li><a class="hover:text-neutral-900 transition-colors" href="#">Sleep Intelligence</a></li>
+<li><a class="hover:text-neutral-900 transition-colors" href="#">Recovery Insights</a></li>
+<li><a class="hover:text-neutral-900 transition-colors" href="#">Activity Tracking</a></li>
+<li><a class="hover:text-neutral-900 transition-colors" href="#">Women's Health</a></li>
+<li><a class="hover:text-neutral-900 transition-colors" href="#">Solace App</a></li>
+</ul>
+</div>
+<!-- Col 3: Resources -->
+<div>
+<h4 class="text-xs font-semibold text-neutral-900 tracking-wider mb-3">Resources</h4>
+<ul class="space-y-2 text-xs text-neutral-500">
+<li><a class="hover:text-neutral-900 transition-colors" href="#">How It Works</a></li>
+<li><a class="hover:text-neutral-900 transition-colors" href="#">Sizing Guide</a></li>
+<li><a class="hover:text-neutral-900 transition-colors" href="#">FAQs</a></li>
+<li><a class="hover:text-neutral-900 transition-colors" href="#">Warranty</a></li>
+</ul>
+</div>
+<!-- Col 4: Company -->
+<div>
+<h4 class="text-xs font-semibold text-neutral-900 tracking-wider mb-3">Company</h4>
+<ul class="space-y-2 text-xs text-neutral-500">
+<li><a class="hover:text-neutral-900 transition-colors" href="#">About Solace</a></li>
+<li><a class="hover:text-neutral-900 transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-neutral-900 transition-colors" href="#">Journal</a></li>
+<li><a class="hover:text-neutral-900 transition-colors" href="#">Press</a></li>
+<li><a class="hover:text-neutral-900 transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Disclaimer and Copyright -->
+<div class="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] text-neutral-400">
+<div>
+<p>© 2026 Solace. All rights reserved.</p>
+<p class="mt-0.5 text-[10px] text-neutral-400">Solace is a wellness device and is not intended to diagnose, treat or prevent any medical condition.</p>
+</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-neutral-700 transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-neutral-700 transition-colors" href="#">Return Policy</a>
+<a class="hover:text-neutral-700 transition-colors" href="#">Privacy Policy</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>

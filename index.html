@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Portfolio — Muhammad Dhani Arta | Fotografi </title>
+
+    <!-- Tailwind CSS v3 with Forms & Container Queries -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Google Fonts: Plus Jakarta Sans for UI & Instrument Serif for luxury display -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#FBFBFB',
+                            100: '#F4F4F6',
+                            200: '#EAEBEF',
+                            300: '#D5D7DF',
+                            400: '#9B9EAE',
+                            500: '#686B7C',
+                            800: '#1C1D22',
+                            900: '#111215',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style data-purpose="typography">
+        .font-editorial {
+            font-family: 'Instrument Serif', Georgia, serif;
+        }
+    </style>
+
+    <style data-purpose="decorations">
+        /* Subtle metallic ring sheen animations */
+        .sheen-glow {
+            background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.85) 0%, rgba(240, 242, 245, 0.4) 60%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .dark-sheen {
+            background: radial-gradient(circle at 50% 50%, #2a2e36 0%, #111215 75%);
+        }
+
+        /* Smooth marquee */
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 25s linear infinite;
+        }
+
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+
+<body class="bg-[#F8F9FA] text-[#19191C] font-sans antialiased selection:bg-neutral-900 selection:text-white">
+
+    <!-- ==========================================
+       BEGIN: NAVBAR (Header Solace Style)
+       ========================================== -->
+    <header class="w-full sticky top-0 z-50 bg-[#F8F9FA]/80 backdrop-blur-md border-b border-black/[0.04]">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a class="flex items-center gap-2.5 group" href="#home">
+                <svg class="w-6 h-6 text-black transition-transform duration-300 group-hover:scale-105" fill="none"
+                    stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <circle cx="12" cy="12" r="4.5"></circle>
+                    <circle cx="12" cy="12" fill="currentColor" r="1.5"></circle>
+                </svg>
+                <span class="text-xl font-medium tracking-tight text-neutral-900">portfolio<span
+                        class="text-neutral-400">.</span></span>
+            </a>
+
+            <!-- Center Navigation Bar (Floating Pill) -->
+            <nav
+                class="hidden md:flex items-center bg-white/70 border border-neutral-200/70 px-4 py-1.5 rounded-full shadow-sm shadow-neutral-100 space-x-1">
+                <a class="px-4 py-1 text-xs tracking-wide font-medium text-neutral-600 hover:text-black transition-colors"
+                    href="#home">Beranda</a>
+                <a class="px-4 py-1 text-xs tracking-wide font-medium text-neutral-600 hover:text-black transition-colors"
+                    href="#about">Tentang</a>
+                <a class="px-4 py-1 text-xs tracking-wide font-medium text-neutral-600 hover:text-black transition-colors"
+                    href="#hobby">Hobi</a>
+                <a class="px-4 py-1 text-xs tracking-wide font-medium text-neutral-600 hover:text-black transition-colors"
+                    href="#skills">Keahlian</a>
+                <a class="px-4 py-1 text-xs tracking-wide font-medium text-neutral-600 hover:text-black transition-colors"
+                    href="#gallery">Galeri</a>
+            </nav>
+
+            <!-- Right Action Button -->
+            <div class="flex items-center gap-3">
+                <a class="bg-black hover:bg-neutral-800 text-white text-xs font-medium px-5 py-2.5 rounded-full transition-all duration-200 hover:shadow-md"
+                    href="#contact">
+                    Hubungi Saya
+                </a>
+                <!-- Mobile Menu Toggle Button -->
+                <button id="mobileMenuBtn" aria-label="Menu"
+                    class="md:hidden w-9 h-9 rounded-full bg-white border border-neutral-200 flex items-center justify-center text-neutral-700">
+                    <i class="fas fa-bars text-sm"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobileMenu"
+            class="hidden md:hidden px-6 py-4 bg-white/95 border-b border-neutral-200 backdrop-blur-md space-y-2">
+            <a class="block py-2 text-sm font-medium text-neutral-700 hover:text-black" href="#home">Beranda</a>
+            <a class="block py-2 text-sm font-medium text-neutral-700 hover:text-black" href="#about">Tentang</a>
+            <a class="block py-2 text-sm font-medium text-neutral-700 hover:text-black" href="#hobby">Hobi</a>
+            <a class="block py-2 text-sm font-medium text-neutral-700 hover:text-black" href="#skills">Keahlian</a>
+            <a class="block py-2 text-sm font-medium text-neutral-700 hover:text-black" href="#gallery">Galeri</a>
+            <a class="block py-2 text-sm font-medium text-neutral-700 hover:text-black" href="#contact">Kontak</a>
+        </div>
+    </header>
+    <!-- END: NAVBAR -->
+
+    <main>
+        <!-- ==========================================
+         BEGIN: HERO SECTION (Replika Visual Solace)
+         ========================================== -->
+        <section class="relative pt-8 pb-20 overflow-hidden bg-gradient-to-b from-[#F8F9FA] via-[#ECEEF2] to-[#F8F9FA]"
+            id="home">
+            <div class="max-w-7xl mx-auto px-6">
+                <!-- Hero Header Row -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pt-4 pb-12">
+                    <div>
+                        <div class="inline-flex items-center gap-2 mb-3">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span class="text-xs font-semibold uppercase tracking-widest text-neutral-500">Fotografer
+                                &bull; Kreator Visual</span>
+                        </div>
+                        <h1 class="text-6xl md:text-8xl font-normal tracking-tight leading-[0.95] text-neutral-900">
+                            Muhammad Dhani Arta <br />
+                            <span class="text-neutral-400 font-light italic font-editorial">fotografi</span>
+                        </h1>
+                    </div>
+                    <p class="max-w-xs text-sm text-neutral-600 leading-relaxed font-normal">
+                        Mengabadikan keindahan dunia melalui sudut pandang lensa. Menangkap momen, emosi, dan cerita
+                        autentik yang tak lekang oleh waktu.
+                    </p>
+                </div>
+
+                <!-- Center Ring Visual & Photographer Profile Showcase -->
+                <div
+                    class="relative w-full max-w-4xl mx-auto min-h-[460px] md:min-h-[560px] flex items-center justify-center my-6">
+                    <!-- Outer circular ambient glow -->
+                    <div
+                        class="absolute w-[360px] md:w-[500px] h-[360px] md:h-[500px] rounded-full sheen-glow filter blur-2xl opacity-80 pointer-events-none">
+                    </div>
+
+                    <!-- Central Titanium Lens Ring Graphic with Profile Image -->
+                    <div
+                        class="relative z-10 w-72 h-72 md:w-[400px] md:h-[400px] flex items-center justify-center group">
+
+                        <!-- Metallic Titanium Bezel (Solace SVG Frame) -->
+                        <svg class="absolute inset-0 w-full h-full drop-shadow-2xl pointer-events-none z-20" fill="none"
+                            viewbox="0 0 400 400">
+                            <defs>
+                                <lineargradient id="ringOuter" x1="0%" x2="100%" y1="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#E1E4EA"></stop>
+                                    <stop offset="35%" stop-color="#FFFFFF"></stop>
+                                    <stop offset="65%" stop-color="#999EA8"></stop>
+                                    <stop offset="100%" stop-color="#D2D6DC"></stop>
+                                </lineargradient>
+                                <lineargradient id="ringInner" x1="0%" x2="100%" y1="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#111216"></stop>
+                                    <stop offset="40%" stop-color="#212429"></stop>
+                                    <stop offset="100%" stop-color="#141518"></stop>
+                                </lineargradient>
+                            </defs>
+                            <!-- Outer Titanium Chasis -->
+                            <circle cx="200" cy="200" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.18))" r="160"
+                                stroke="url(#ringOuter)" stroke-width="24"></circle>
+                            <!-- Subtle Ring Edges bevel -->
+                            <circle cx="200" cy="200" r="172" stroke="#FFFFFF" stroke-opacity="0.7" stroke-width="1.5">
+                            </circle>
+                            <circle cx="200" cy="200" r="148" stroke="#6B7280" stroke-opacity="0.3" stroke-width="1.5">
+                            </circle>
+
+                            <!-- Sensor / Camera Lens Hardware Indicators -->
+                            <circle cx="200" cy="40" r="4" fill="#10B981" filter="drop-shadow(0 0 6px #10B981)">
+                            </circle>
+                            <circle cx="200" cy="360" r="3" fill="#EF4444" filter="drop-shadow(0 0 6px #EF4444)">
+                            </circle>
+                            <circle cx="40" cy="200" r="3" fill="#6EE7B7"></circle>
+                            <circle cx="360" cy="200" r="3" fill="#FBBF24"></circle>
+                        </svg>
+
+                        <!-- Inner Profile Photo Frame -->
+                        <div
+                            class="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden shadow-inner relative z-10 border-4 border-neutral-900 group-hover:scale-[1.02] transition-transform duration-500">
+                            <img src="img/foto%20halaman%20utama.jpg" alt="Foto Halaman Utama"
+                                class="w-full h-full object-cover object-top filter brightness-[1.02] contrast-[1.03]" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60">
+                            </div>
+
+                            <!-- Floating Pill in Photo Center Bottom -->
+                            <div
+                                class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/75 backdrop-blur-md px-3.5 py-1 rounded-full border border-white/20 text-white text-[11px] font-medium tracking-wide flex items-center gap-1.5 whitespace-nowrap shadow-lg">
+                                <i class="fas fa-camera text-emerald-400 text-[10px]"></i>
+                                <span>Nama Anda</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Interactive Metric Pills (Bottom Hero Grid) -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-3 max-w-5xl mx-auto pt-6">
+                    <!-- Card 1: Hobi Fotografi (Active Card) -->
+                    <div
+                        class="md:col-span-1 bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-sm border border-neutral-200/80 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                <span class="text-xs font-semibold uppercase tracking-wider text-neutral-800">Hobi &
+                                    Passion</span>
+                            </div>
+                            <p class="text-[11px] text-neutral-500 leading-snug">
+                                Fotografi adalah cara saya melihat cerita tersembunyi di setiap sudut kehidupan
+                                sehari-hari.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-3 pt-2 border-t border-neutral-100">
+                            <span
+                                class="text-[10px] bg-neutral-100 px-2 py-0.5 rounded text-neutral-700 font-medium">Landscape</span>
+                            <span
+                                class="text-[10px] bg-neutral-100 px-2 py-0.5 rounded text-neutral-700 font-medium">Portrait</span>
+                            <span
+                                class="text-[10px] bg-neutral-100 px-2 py-0.5 rounded text-neutral-700 font-medium">Street</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Pengalaman & Eksplorasi -->
+                    <div
+                        class="bg-white/70 backdrop-blur-sm rounded-2xl p-4 border border-neutral-200/60 hover:bg-white hover:border-neutral-300 transition-all flex items-center justify-between cursor-pointer group">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-700">
+                                <i class="fas fa-camera-retro text-xs"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-semibold text-neutral-800 block">Karya Visual</span>
+                                <span class="text-[10px] text-neutral-400">100+ Foto Terkurasi</span>
+                            </div>
+                        </div>
+                        <span
+                            class="text-neutral-400 group-hover:text-neutral-900 transition-colors text-sm font-light">+</span>
+                    </div>
+
+                    <!-- Card 3: Domisili & Wilayah -->
+                    <div
+                        class="bg-white/70 backdrop-blur-sm rounded-2xl p-4 border border-neutral-200/60 hover:bg-white hover:border-neutral-300 transition-all flex items-center justify-between cursor-pointer group">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-700">
+                                <i class="fas fa-location-dot text-xs"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-semibold text-neutral-800 block">Domisili</span>
+                                <span class="text-[10px] text-neutral-400">Kota Anda, Indonesia</span>
+                            </div>
+                        </div>
+                        <span
+                            class="text-neutral-400 group-hover:text-neutral-900 transition-colors text-sm font-light">+</span>
+                    </div>
+
+                    <!-- Card 4: Ketersediaan Kolaborasi -->
+                    <div
+                        class="bg-white/70 backdrop-blur-sm rounded-2xl p-4 border border-neutral-200/60 hover:bg-white hover:border-neutral-300 transition-all flex items-center justify-between cursor-pointer group">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-700">
+                                <i class="fas fa-paper-plane text-xs"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-semibold text-neutral-800 block">Kolaborasi</span>
+                                <span class="text-[10px] text-neutral-400">Terbuka untuk Projek</span>
+                            </div>
+                        </div>
+                        <span
+                            class="text-neutral-400 group-hover:text-neutral-900 transition-colors text-sm font-light">+</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: HERO SECTION -->
+
+        <!-- ==========================================
+         BEGIN: BRAND / GEAR PARTNER BAR
+         ========================================== -->
+        <section class="border-y border-neutral-200/70 bg-white py-8" data-purpose="partners">
+            <div class="max-w-7xl mx-auto px-6 overflow-hidden">
+                <div
+                    class="flex flex-wrap items-center justify-between gap-8 opacity-65 grayscale hover:grayscale-0 transition-all duration-300">
+                    <div class="flex items-center gap-2 font-semibold tracking-tight text-neutral-800 text-sm">
+                        <span class="w-2.5 h-2.5 rounded-full bg-neutral-900"></span> LEICA
+                    </div>
+                    <div class="flex items-center gap-2 font-medium tracking-wider text-neutral-700 text-sm">
+                        <div class="w-5 h-2.5 rounded-full border border-neutral-700"></div> SONY ALPHA
+                    </div>
+                    <div class="flex items-center gap-1.5 font-bold tracking-tight text-neutral-800 text-sm">
+                        <span class="font-serif italic text-lg">&amp;</span> CANON EOS
+                    </div>
+                    <div class="flex items-center gap-1.5 font-semibold tracking-tight text-neutral-800 text-sm">
+                        <span class="text-xs">⊚</span> FUJIFILM X
+                    </div>
+                    <div class="flex items-center gap-1.5 tracking-widest font-black text-neutral-800 text-xs">
+                        ▲ HASSELBLAD
+                    </div>
+                    <div class="flex items-center font-bold tracking-tight text-neutral-900 text-sm">
+                        ZEISS OPTICS
+                    </div>
+                    <div class="flex items-center gap-1.5 font-medium tracking-normal text-neutral-800 text-sm">
+                        <span class="w-3.5 h-3.5 rounded-full border-2 border-neutral-800"></span> ADOBE LIGHTROOM
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: BRAND / GEAR BAR -->
+
+        <!-- ==========================================
+         BEGIN: TENTANG SAYA & FILOSOFI FOTOGRAFI
+         ========================================== -->
+        <section class="py-24 bg-[#F8F9FA]" data-purpose="mission" id="about">
+            <div class="max-w-7xl mx-auto px-6">
+                <!-- Mission Header Row -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
+                    <div class="lg:col-span-3">
+                        <span class="text-xs uppercase tracking-widest font-medium text-neutral-400 block mb-2">Tentang
+                            Saya</span>
+                        <span class="text-[11px] font-mono text-neutral-500">[ 01 / filosofi ]</span>
+                    </div>
+                    <div class="lg:col-span-9 max-w-3xl">
+                        <h2 class="text-3xl md:text-5xl font-light text-neutral-900 leading-snug tracking-tight mb-8">
+                            Saya percaya bahwa fotografi adalah seni <strong
+                                class="font-semibold text-black">mengabadikan apa yang tak terucapkan.</strong>
+                            Menangkap cahaya, bayangan, dan emosi alami dalam setiap frame untuk menghadirkan cerita
+                            yang hidup.
+                        </h2>
+                        <div class="flex flex-wrap items-center gap-4">
+                            <a class="inline-flex items-center px-5 py-2.5 rounded-full border border-neutral-300 text-xs font-medium text-neutral-800 hover:bg-neutral-900 hover:text-white hover:border-black transition-all"
+                                href="#gallery">
+                                Lihat Galeri Foto
+                            </a>
+                            <a class="inline-flex items-center px-5 py-2.5 rounded-full bg-white border border-neutral-200 text-xs font-medium text-neutral-600 hover:text-black transition-all"
+                                href="#contact">
+                                Terhubung Bersama Saya &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4-Column Hobi / Photography Genres Showcase (Solace Finish Cards) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4" id="hobby">
+                    <!-- Card 1: Landscape -->
+                    <div
+                        class="group bg-white rounded-3xl p-6 border border-neutral-200/80 hover:border-neutral-400 transition-all duration-300 flex flex-col justify-between min-h-[320px]">
+                        <div class="flex items-center justify-between text-neutral-400 text-xs font-mono">
+                            <span>[ 01 / landscape ]</span>
+                            <span
+                                class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                        </div>
+                        <div class="py-8 flex items-center justify-center">
+                            <div
+                                class="w-32 h-32 rounded-full border-[14px] border-neutral-200 shadow-inner group-hover:scale-105 transition-transform duration-300 flex items-center justify-center relative bg-gradient-to-tr from-sky-200 via-neutral-100 to-emerald-200">
+                                <div
+                                    class="w-20 h-20 rounded-full bg-[#F8F9FA] shadow-sm flex items-center justify-center text-neutral-700">
+                                    <i class="fas fa-mountain-sun text-lg"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-neutral-900 font-semibold text-center">Landscape & Alam</div>
+                            <p class="text-[11px] text-neutral-500 text-center mt-1">Keagungan gunung, laut, & langit
+                                senja</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Portrait -->
+                    <div
+                        class="group bg-white rounded-3xl p-6 border border-neutral-200/80 hover:border-neutral-400 transition-all duration-300 flex flex-col justify-between min-h-[320px]">
+                        <div class="flex items-center justify-between text-neutral-400 text-xs font-mono">
+                            <span>[ 02 / portrait ]</span>
+                            <span
+                                class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                        </div>
+                        <div class="py-8 flex items-center justify-center">
+                            <div
+                                class="w-32 h-32 rounded-full border-[14px] border-neutral-900 shadow-inner group-hover:scale-105 transition-transform duration-300 flex items-center justify-center relative bg-gradient-to-tr from-neutral-800 via-neutral-900 to-black">
+                                <div
+                                    class="w-20 h-20 rounded-full bg-[#F8F9FA] shadow-sm flex items-center justify-center text-neutral-800">
+                                    <i class="fas fa-user text-lg"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-neutral-900 font-semibold text-center">Human Portrait</div>
+                            <p class="text-[11px] text-neutral-500 text-center mt-1">Karakter personal & ekspresi
+                                autentik</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Street -->
+                    <div
+                        class="group bg-white rounded-3xl p-6 border border-neutral-200/80 hover:border-neutral-400 transition-all duration-300 flex flex-col justify-between min-h-[320px]">
+                        <div class="flex items-center justify-between text-neutral-400 text-xs font-mono">
+                            <span>[ 03 / street ]</span>
+                            <span
+                                class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                        </div>
+                        <div class="py-8 flex items-center justify-center">
+                            <div
+                                class="w-32 h-32 rounded-full border-[14px] border-amber-300 shadow-inner group-hover:scale-105 transition-transform duration-300 flex items-center justify-center relative bg-gradient-to-tr from-yellow-500 via-amber-200 to-yellow-600">
+                                <div
+                                    class="w-20 h-20 rounded-full bg-[#F8F9FA] shadow-sm flex items-center justify-center text-amber-900">
+                                    <i class="fas fa-city text-lg"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-neutral-900 font-semibold text-center">Street Photography</div>
+                            <p class="text-[11px] text-neutral-500 text-center mt-1">Dinamika jalanan & momen spontan
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Golden Hour -->
+                    <div
+                        class="group bg-white rounded-3xl p-6 border border-neutral-200/80 hover:border-neutral-400 transition-all duration-300 flex flex-col justify-between min-h-[320px]">
+                        <div class="flex items-center justify-between text-neutral-400 text-xs font-mono">
+                            <span>[ 04 / golden hour ]</span>
+                            <span
+                                class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                        </div>
+                        <div class="py-8 flex items-center justify-center">
+                            <div
+                                class="w-32 h-32 rounded-full border-[14px] border-rose-300 shadow-inner group-hover:scale-105 transition-transform duration-300 flex items-center justify-center relative bg-gradient-to-tr from-rose-700 via-amber-300 to-orange-500">
+                                <div
+                                    class="w-20 h-20 rounded-full bg-[#F8F9FA] shadow-sm flex items-center justify-center text-rose-900">
+                                    <i class="fas fa-sun text-lg"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-neutral-900 font-semibold text-center">Golden Hour & Mood</div>
+                            <p class="text-[11px] text-neutral-500 text-center mt-1">Pencahayaan senja yang hangat &
+                                puitis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: TENTANG SAYA -->
+
+        <!-- ==========================================
+         BEGIN: EDITORIAL SHOWCASE (GIANT TYPOGRAPHY)
+         ========================================== -->
+        <section class="py-24 relative overflow-hidden bg-white" data-purpose="flagship-hero">
+            <div class="max-w-7xl mx-auto px-6 relative">
+                <span class="text-xs uppercase tracking-widest font-mono text-neutral-400 block mb-6">[ signature visual
+                    ]</span>
+
+                <!-- Giant Backdrop Typography ("visuals" Solace style) -->
+                <div
+                    class="relative w-full flex items-center justify-center select-none overflow-hidden py-12 md:py-24">
+                    <h2
+                        class="text-[100px] sm:text-[170px] md:text-[250px] lg:text-[320px] font-serif tracking-tight text-neutral-900 font-normal leading-none pointer-events-none transform -translate-y-4">
+                        visuals
+                    </h2>
+
+                    <!-- Center Camera Aperture / Photo Display -->
+                    <div class="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                        <div
+                            class="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full border-[22px] border-neutral-900 shadow-2xl relative bg-[#131518] flex items-center justify-center ring-1 ring-white/20">
+                            <!-- Sensor Glow Lights inside Ring Inner Diameter -->
+                            <div class="absolute bottom-4 flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_12px_#34d399]"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_12px_#ef4444]"></span>
+                                <span class="w-2 h-2 rounded-full bg-emerald-300"></span>
+                            </div>
+                            <!-- Inner Photo Display -->
+                            <div
+                                class="w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-inner flex items-center justify-center">
+                                <img src="img/foto%20halaman%20utama.jpg" alt="Foto Profil Utama"
+                                    class="w-full h-full object-cover object-top" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Info Badge on Left Side -->
+                    <div
+                        class="absolute bottom-6 left-2 sm:left-12 z-20 bg-white/90 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-neutral-200/80 shadow-lg pointer-events-auto max-w-[210px]">
+                        <div class="flex items-center justify-between text-[11px] text-neutral-400 font-mono mb-1">
+                            <span>[ fotografer ]</span>
+                            <span>↗</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-neutral-900">Nama Lengkap Anda</h3>
+                        <p class="text-[11px] text-neutral-500 mt-0.5">Kota Anda, Indonesia</p>
+                        <div class="flex items-center justify-between mt-3 pt-2 border-t border-neutral-100">
+                            <span class="text-xs font-semibold text-emerald-600">Available</span>
+                            <a class="bg-black text-white text-[11px] font-medium px-3 py-1.5 rounded-full hover:bg-neutral-800 transition-colors"
+                                href="#contact">
+                                Kontak
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Feature Pills Below Ring -->
+                <div class="flex flex-wrap items-center justify-center gap-2.5 mt-8">
+                    <span
+                        class="px-4 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 text-xs font-medium text-neutral-700">Digital
+                        & Analog</span>
+                    <span
+                        class="px-4 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 text-xs font-medium text-neutral-700">Visual
+                        Storytelling</span>
+                    <span
+                        class="px-4 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 text-xs font-medium text-neutral-700">Lightroom
+                        & Retouching</span>
+                </div>
+            </div>
+        </section>
+        <!-- END: EDITORIAL SHOWCASE -->
+
+        <!-- ==========================================
+         BEGIN: KEAHLIAN / SKILLS & VALUES
+         ========================================== -->
+        <section class="py-24 bg-[#F8F9FA]" data-purpose="features" id="skills">
+            <div class="max-w-7xl mx-auto px-6">
+                <!-- Big statement -->
+                <div class="max-w-2xl mb-16">
+                    <span class="text-xs uppercase tracking-widest font-mono text-neutral-400 block mb-3">[ keahlian
+                        teknis ]</span>
+                    <h2
+                        class="text-2xl sm:text-3xl md:text-4xl font-normal text-neutral-900 tracking-tight leading-snug">
+                        Memadukan kepekaan estetika dengan <strong class="font-semibold">penguasaan teknis
+                            kamera</strong> untuk menghasilkan foto yang bercerita dan bermakna.
+                    </h2>
+                </div>
+
+                <!-- 4 Minimal Icon Feature Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Card 1: Komposisi Visual -->
+                    <div
+                        class="bg-white rounded-3xl p-8 border border-neutral-200/70 hover:border-neutral-300 transition-all flex flex-col items-center justify-center text-center min-h-[220px]">
+                        <div class="w-12 h-12 flex items-center justify-center text-neutral-800 mb-6">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewbox="0 0 24 24">
+                                <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"></path>
+                                <circle cx="12" cy="12" r="3" stroke-dasharray="2 2"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="text-sm font-semibold text-neutral-900 tracking-tight">Komposisi & Framing</h3>
+                        <p class="text-[11px] text-neutral-500 mt-1">Rule of thirds, golden ratio, & simetri</p>
+                    </div>
+
+                    <!-- Card 2: Penguasaan Cahaya -->
+                    <div
+                        class="bg-white rounded-3xl p-8 border border-neutral-200/70 hover:border-neutral-300 transition-all flex flex-col items-center justify-center text-center min-h-[220px]">
+                        <div class="w-12 h-12 flex items-center justify-center text-neutral-800 mb-6">
+                            <svg class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="1.75"
+                                viewbox="0 0 24 24">
+                                <path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-sm font-semibold text-neutral-900 tracking-tight">Natural & Studio Lighting</h3>
+                        <p class="text-[11px] text-neutral-500 mt-1">Kontrol bayangan, highlight, & diffuser</p>
+                    </div>
+
+                    <!-- Card 3: Color Grading -->
+                    <div
+                        class="bg-white rounded-3xl p-8 border border-neutral-200/70 hover:border-neutral-300 transition-all flex flex-col items-center justify-center text-center min-h-[220px]">
+                        <div class="w-12 h-12 flex items-center justify-center text-neutral-800 mb-6">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewbox="0 0 24 24">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <path
+                                    d="M12 1v3M12 20v3M1 12h3M20 12h3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-sm font-semibold text-neutral-900 tracking-tight">Color Grading & Edit</h3>
+                        <p class="text-[11px] text-neutral-500 mt-1">Adobe Lightroom & Photoshop mastering</p>
+                    </div>
+
+                    <!-- Card 4: Storytelling -->
+                    <div
+                        class="bg-white rounded-3xl p-8 border border-neutral-200/70 hover:border-neutral-300 transition-all flex flex-col items-center justify-center text-center min-h-[220px]">
+                        <div class="w-12 h-12 flex items-center justify-center text-neutral-800 mb-6">
+                            <svg class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="1.75"
+                                viewbox="0 0 24 24">
+                                <path d="M6 9l6 3 6-3M6 15l6 3 6-3M12 3v9"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-sm font-semibold text-neutral-900 tracking-tight">Visual Storytelling</h3>
+                        <p class="text-[11px] text-neutral-500 mt-1">Menyusun narasi emosional dalam seri foto</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: KEAHLIAN -->
+
+        <!-- ==========================================
+         BEGIN: PROSES KREATIF (How It Works)
+         ========================================== -->
+        <section class="py-24 bg-[#ECEEF2]/70 border-t border-neutral-200/60" data-purpose="app-showcase" id="process">
+            <div class="max-w-7xl mx-auto px-6">
+                <!-- Header Text -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16">
+                    <div class="lg:col-span-4">
+                        <span class="text-xs uppercase tracking-wider text-neutral-500">
+                            Alur Kerja &bull;<br />Pendekatan Kreatif
+                        </span>
+                    </div>
+                    <div class="lg:col-span-8">
+                        <h2 class="text-3xl sm:text-4xl font-normal text-neutral-900 tracking-tight">
+                            Bekerja dengan kepekaan dan rencana matang.<br />
+                            <span class="font-semibold">Bagaimana proses karya saya dibuat.</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <!-- 3 Step Mockup Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Step 1: Moodboard & Konsep -->
+                    <div class="flex flex-col">
+                        <div
+                            class="bg-gradient-to-b from-neutral-200 to-neutral-300 rounded-3xl p-6 min-h-[360px] flex flex-col justify-center items-center shadow-inner relative overflow-hidden">
+                            <div
+                                class="w-full max-w-[240px] bg-white rounded-2xl p-4 shadow-xl border border-neutral-100">
+                                <div class="text-[10px] uppercase font-bold text-neutral-400 mb-2">01 &bull;
+                                    Konseptualisasi</div>
+                                <div class="h-2 w-16 bg-neutral-200 rounded mb-4"></div>
+                                <div class="space-y-2 mb-4">
+                                    <div
+                                        class="h-8 bg-neutral-50 rounded border border-neutral-200 flex items-center px-3 text-[11px] text-neutral-600 justify-between">
+                                        <span>Moodboard & Color Palette</span>
+                                        <span class="text-emerald-500">✓</span>
+                                    </div>
+                                    <div
+                                        class="h-8 bg-neutral-50 rounded border border-neutral-200 flex items-center px-3 text-[11px] text-neutral-400">
+                                        Menentukan lokasi & angle...
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-full py-2 bg-black text-white text-[11px] font-medium text-center rounded-xl">
+                                    Konsep Siap
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-5">
+                            <h3 class="text-base font-bold text-neutral-900">1. Konsep & Moodboard</h3>
+                            <p class="text-xs text-neutral-500 mt-1 leading-relaxed">
+                                Menemukan ide cerita, memilih pencahayaan terbaik, dan mempersiapkan arahan visual
+                                sebelum pemotretan.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Sesi Pemotretan -->
+                    <div class="flex flex-col">
+                        <div
+                            class="bg-gradient-to-b from-neutral-200 to-neutral-300 rounded-3xl p-6 min-h-[360px] flex flex-col justify-center items-center shadow-inner relative overflow-hidden">
+                            <div
+                                class="w-full max-w-[240px] bg-white/95 rounded-2xl p-4 shadow-xl border border-neutral-100 space-y-2.5">
+                                <div
+                                    class="flex items-center justify-between p-2 rounded-xl bg-neutral-50 border border-neutral-100">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+                                        <span class="text-xs font-medium text-neutral-700">Shutter Count</span>
+                                    </div>
+                                    <span class="text-base font-bold text-neutral-900">450+</span>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between p-2 rounded-xl bg-neutral-50 border border-neutral-100">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                        <span class="text-xs font-semibold text-neutral-800">Aperture / DOF</span>
+                                    </div>
+                                    <span class="text-base font-bold text-neutral-900">f/1.4</span>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between p-2 rounded-xl bg-neutral-50 border border-neutral-100">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                                        <span class="text-xs font-medium text-neutral-700">Waktu Ideal</span>
+                                    </div>
+                                    <span class="text-base font-bold text-neutral-900">Golden Hr</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-5">
+                            <h3 class="text-base font-bold text-neutral-900">2. Pengambilan Gambar (Shooting)</h3>
+                            <p class="text-xs text-neutral-500 mt-1 leading-relaxed">
+                                Menangkap momen spontan dan komposisi presisi dengan gear kamera profesional dan timing
+                                yang pas.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Color Grading & Final -->
+                    <div class="flex flex-col">
+                        <div
+                            class="bg-gradient-to-b from-neutral-200 to-neutral-300 rounded-3xl p-6 min-h-[360px] flex flex-col justify-center items-center shadow-inner relative overflow-hidden">
+                            <div
+                                class="w-full max-w-[240px] bg-white rounded-2xl p-4 shadow-xl border border-neutral-100">
+                                <div class="text-[10px] font-mono text-neutral-400 mb-2">03 &bull; Kurasi & Retouch
+                                </div>
+                                <div class="w-full h-24 rounded-lg bg-neutral-800 mb-3 overflow-hidden relative">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-2">
+                                        <span class="text-[10px] text-white font-medium">Color Grade: Film Tone</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="p-2 bg-emerald-50 rounded-lg border border-emerald-100 text-[10px] text-emerald-800 font-medium">
+                                    Resolusi Ultra-High & Siap Tayang.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-5">
+                            <h3 class="text-base font-bold text-neutral-900">3. Post-Processing & Kurasi</h3>
+                            <p class="text-xs text-neutral-500 mt-1 leading-relaxed">
+                                Sentuhan akhir warna (*color grading*), koreksi pencahayaan, dan kurasi karya dengan
+                                standar kualitas tinggi.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: PROSES KREATIF -->
+
+        <!-- ==========================================
+         BEGIN: GALERI / KOLEKSI FOTO (Solace Shop Style)
+         ========================================== -->
+        <section class="py-24 bg-white" data-purpose="product-catalog" id="gallery">
+            <div class="max-w-7xl mx-auto px-6">
+                <!-- Section Header -->
+                <div class="text-center max-w-xl mx-auto mb-16">
+                    <span
+                        class="inline-flex items-center gap-1.5 text-[10px] uppercase font-bold tracking-widest text-amber-600 bg-amber-50 px-3 py-1 rounded-full mb-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> KOLEKSI PILIHAN
+                    </span>
+                    <h2 class="text-4xl font-normal text-neutral-900 tracking-tight">Galeri Karya Visual</h2>
+                    <p class="text-xs text-neutral-500 mt-2">
+                        Kumpulan potret terpilih dari berbagai sesi dan perjalanan fotografi. Tempatkan karya foto Anda
+                        di sini.
+                    </p>
+                </div>
+
+                <!-- 4 Moody Product/Photo Cards Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Card 1: Sunset Horizon -->
+                    <div
+                        class="group relative rounded-3xl overflow-hidden min-h-[420px] bg-neutral-900 text-white flex flex-col justify-between p-6 shadow-md">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-amber-950/40 mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-950">
+                        </div>
+                        <div class="relative z-10">
+                            <span
+                                class="text-[10px] uppercase tracking-wider text-amber-200 font-semibold bg-white/10 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                                Landscape
+                            </span>
+                        </div>
+                        <div class="relative z-10 pt-20">
+                            <h3 class="text-lg font-bold">Golden Hour Reflections</h3>
+                            <p class="text-xs text-neutral-300 mt-1">Harmoni cahaya matahari terbenam di atas cakrawala.
+                            </p>
+                            <div class="flex items-center justify-between mt-6 pt-4 border-t border-white/10">
+                                <span class="text-[11px] text-neutral-400">35mm &bull; f/2.0</span>
+                                <span
+                                    class="text-xs font-semibold text-white group-hover:translate-x-1 transition-transform">Lihat
+                                    Foto &rarr;</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Urban Monologue -->
+                    <div
+                        class="group relative rounded-3xl overflow-hidden min-h-[420px] bg-[#101114] text-white flex flex-col justify-between p-6 shadow-md border border-neutral-800">
+                        <div
+                            class="absolute inset-0 bg-radial from-amber-500/10 via-transparent to-transparent opacity-60">
+                        </div>
+                        <div class="relative z-10 flex items-center justify-between">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                                <span class="text-xs font-bold">Street Life</span>
+                            </div>
+                            <div class="flex items-center gap-1 text-[11px] text-amber-300 font-medium">
+                                <span>★</span> Series
+                            </div>
+                        </div>
+                        <!-- Center Graphic Frame (Placeholder Foto) -->
+                        <div class="relative z-10 py-6 flex items-center justify-center">
+                            <div
+                                class="w-36 h-36 rounded-2xl border border-neutral-700 bg-neutral-900/80 flex flex-col items-center justify-center gap-2 text-neutral-400 group-hover:scale-105 transition-transform duration-300 shadow-xl">
+                                <i class="fas fa-camera text-2xl text-amber-400"></i>
+                                <span class="text-[11px] font-mono">[ Foto 2 ]</span>
+                            </div>
+                        </div>
+                        <div class="relative z-10">
+                            <h3 class="text-sm font-semibold text-white mb-1">Urban Monologue</h3>
+                            <p class="text-xs text-neutral-400">Ritme pejalan kaki dan arsitektur kota di pagi hari.</p>
+                            <div
+                                class="mt-4 pt-3 border-t border-neutral-800/80 flex items-center justify-between text-[11px] text-neutral-400">
+                                <span>50mm Prime</span>
+                                <span class="text-white font-semibold">Tersedia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Moody Portrait -->
+                    <div
+                        class="group relative rounded-3xl overflow-hidden min-h-[420px] bg-[#0E0F12] text-white flex flex-col justify-between p-6 shadow-md border border-neutral-800">
+                        <div
+                            class="absolute inset-0 bg-radial from-slate-500/10 via-transparent to-transparent opacity-50">
+                        </div>
+                        <div class="relative z-10 flex items-center justify-between">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-neutral-400"></span>
+                                <span class="text-xs font-bold">Portrait</span>
+                            </div>
+                            <div class="flex items-center gap-1 text-[11px] text-neutral-300 font-medium">
+                                <span>★</span> Studio
+                            </div>
+                        </div>
+                        <!-- Center Graphic Frame (Placeholder Foto) -->
+                        <div class="relative z-10 py-6 flex items-center justify-center">
+                            <div
+                                class="w-36 h-36 rounded-2xl border border-neutral-700 bg-neutral-900/80 flex flex-col items-center justify-center gap-2 text-neutral-400 group-hover:scale-105 transition-transform duration-300 shadow-xl">
+                                <i class="fas fa-user-astronaut text-2xl text-neutral-300"></i>
+                                <span class="text-[11px] font-mono">[ Foto 3 ]</span>
+                            </div>
+                        </div>
+                        <div class="relative z-10">
+                            <h3 class="text-sm font-semibold text-white mb-1">Ethereal Expressions</h3>
+                            <p class="text-xs text-neutral-400">Sorotan mata dan pencahayaan chiaroscuro dramatis.</p>
+                            <div
+                                class="mt-4 pt-3 border-t border-neutral-800/80 flex items-center justify-between text-[11px] text-neutral-400">
+                                <span>85mm &bull; f/1.4</span>
+                                <span class="text-white font-semibold">Tersedia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Silent Nature -->
+                    <div
+                        class="group relative rounded-3xl overflow-hidden min-h-[420px] bg-[#111216] text-white flex flex-col justify-between p-6 shadow-md border border-neutral-800">
+                        <div class="relative z-10 flex items-center justify-between">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-slate-300"></span>
+                                <span class="text-xs font-bold">Nature</span>
+                            </div>
+                            <div class="flex items-center gap-1 text-[11px] text-neutral-300 font-medium">
+                                <span>★</span> Series
+                            </div>
+                        </div>
+                        <!-- Center Graphic Frame (Placeholder Foto) -->
+                        <div class="relative z-10 py-6 flex items-center justify-center">
+                            <div
+                                class="w-36 h-36 rounded-2xl border border-neutral-700 bg-neutral-900/80 flex flex-col items-center justify-center gap-2 text-neutral-400 group-hover:scale-105 transition-transform duration-300 shadow-xl">
+                                <i class="fas fa-tree text-2xl text-emerald-400"></i>
+                                <span class="text-[11px] font-mono">[ Foto 4 ]</span>
+                            </div>
+                        </div>
+                        <div class="relative z-10">
+                            <h3 class="text-sm font-semibold text-white mb-1">Silent Woods</h3>
+                            <p class="text-xs text-neutral-400">Kabut tipis menyelimuti pepohonan di lereng bukit.</p>
+                            <div
+                                class="mt-4 pt-3 border-t border-neutral-800/80 flex items-center justify-between text-[11px] text-neutral-400">
+                                <span>24mm Ultra-Wide</span>
+                                <span class="text-white font-semibold">Tersedia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: GALERI -->
+
+        <!-- ==========================================
+         BEGIN: CALL TO ACTION BANNER (Pill Container)
+         ========================================== -->
+        <section class="py-16 bg-[#F8F9FA]" data-purpose="cta-banner">
+            <div class="max-w-7xl mx-auto px-6">
+                <!-- Large Pill Styled Container (Solace Replica) -->
+                <div
+                    class="relative rounded-[40px] bg-gradient-to-b from-[#D4D8E0] via-[#C8CCD6] to-[#A4AAB8] p-8 md:p-16 overflow-hidden flex items-center justify-center shadow-xl">
+                    <!-- Stylized Giant Ring Silhouette centered behind card -->
+                    <div
+                        class="absolute w-[440px] md:w-[620px] h-[440px] md:h-[620px] rounded-full border-[42px] border-neutral-900/90 shadow-2xl flex items-center justify-center pointer-events-none">
+                        <div
+                            class="w-[300px] md:w-[480px] h-[300px] md:h-[480px] rounded-full border-[10px] border-neutral-800/40">
+                        </div>
+                    </div>
+
+                    <!-- Central White Dialog Card -->
+                    <div
+                        class="relative z-10 max-w-md w-full bg-white/95 backdrop-blur-md rounded-3xl p-8 text-center shadow-2xl border border-white">
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-neutral-400 block mb-2">Mari
+                            Berkolaborasi</span>
+                        <h3 class="text-xl md:text-2xl font-normal text-neutral-900 leading-snug tracking-tight">
+                            Tertarik membuat cerita visual bersama? <strong class="font-semibold">Mari wujudkan karya
+                                terbaik.</strong>
+                        </h3>
+                        <p class="text-xs text-neutral-500 mt-4 leading-relaxed">
+                            Tersedia untuk sesi portrait, editorial, travel photography, dan proyek komersial.
+                        </p>
+                        <div class="mt-6">
+                            <a class="w-full inline-block bg-black hover:bg-neutral-800 text-white text-xs font-semibold py-3.5 px-6 rounded-full transition-all shadow-md hover:shadow-lg"
+                                href="#contact">
+                                Hubungi Saya Sekarang &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: CALL TO ACTION BANNER -->
+    </main>
+
+    <!-- ==========================================
+       BEGIN: FOOTER (Solace Style Layout)
+       ========================================== -->
+    <footer class="bg-white border-t border-neutral-200/80 pt-16 pb-12" data-purpose="footer" id="contact">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Top Grid: Brand, Kontak Personal & Sosmed -->
+            <div class="grid grid-cols-1 md:grid-cols-6 gap-10 pb-16 border-b border-neutral-100">
+                <!-- Brand Info -->
+                <div class="md:col-span-2">
+                    <a class="flex items-center gap-2.5" href="#home">
+                        <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="1.75"
+                            viewbox="0 0 24 24">
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <circle cx="12" cy="12" r="4.5"></circle>
+                            <circle cx="12" cy="12" fill="currentColor" r="1.5"></circle>
+                        </svg>
+                        <span class="text-xl font-medium tracking-tight text-neutral-900">portfolio<span
+                                class="text-neutral-400">.</span></span>
+                    </a>
+                    <p class="text-xs text-neutral-500 mt-3 max-w-xs leading-relaxed">
+                        Portofolio perkenalan diri dan galeri fotografi. Mengabadikan keindahan hidup, satu frame pada
+                        satu waktu.
+                    </p>
+
+                    <!-- Social Media Icons -->
+                    <div class="mt-6">
+                        <span
+                            class="text-[11px] uppercase tracking-wider font-semibold text-neutral-400 block mb-2.5">Ikuti
+                            Media Sosial</span>
+                        <div class="flex items-center gap-3 text-neutral-700">
+                            <!-- Instagram -->
+                            <a aria-label="Instagram"
+                                class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center hover:bg-black hover:text-white transition-colors"
+                                href="#">
+                                <i class="fab fa-instagram text-xs"></i>
+                            </a>
+                            <!-- X (Twitter) -->
+                            <a aria-label="X"
+                                class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center hover:bg-black hover:text-white transition-colors"
+                                href="#">
+                                <i class="fab fa-x-twitter text-xs"></i>
+                            </a>
+                            <!-- YouTube -->
+                            <a aria-label="YouTube"
+                                class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center hover:bg-black hover:text-white transition-colors"
+                                href="#">
+                                <i class="fab fa-youtube text-xs"></i>
+                            </a>
+                            <!-- LinkedIn -->
+                            <a aria-label="LinkedIn"
+                                class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center hover:bg-black hover:text-white transition-colors"
+                                href="#">
+                                <i class="fab fa-linkedin-in text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Col 1: Navigasi Cepat -->
+                <div>
+                    <h4 class="text-xs font-semibold text-neutral-900 tracking-wider mb-3">Navigasi</h4>
+                    <ul class="space-y-2 text-xs text-neutral-500">
+                        <li><a class="hover:text-neutral-900 transition-colors" href="#home">Beranda</a></li>
+                        <li><a class="hover:text-neutral-900 transition-colors" href="#about">Tentang Saya</a></li>
+                        <li><a class="hover:text-neutral-900 transition-colors" href="#hobby">Hobi Fotografi</a></li>
+                        <li><a class="hover:text-neutral-900 transition-colors" href="#skills">Keahlian</a></li>
+                        <li><a class="hover:text-neutral-900 transition-colors" href="#gallery">Galeri</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 2: Kontak Personal (Placeholder) -->
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-semibold text-neutral-900 tracking-wider mb-3">Kontak Personal</h4>
+                    <ul class="space-y-2.5 text-xs text-neutral-500">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-envelope text-neutral-400 w-4"></i>
+                            <span>muhammaddhannni@gmail.com</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-phone text-neutral-400 w-4"></i>
+                            <span>+62 812-xxxx-xxxx</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-location-dot text-neutral-400 w-4"></i>
+                            <span>Kota KLATEN, Indonesia</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-clock text-neutral-400 w-4"></i>
+                            <span>Senin – Sabtu (09.00 – 18.00 WIB)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Sosmed Handles (Placeholder) -->
+                <div>
+                    <h4 class="text-xs font-semibold text-neutral-900 tracking-wider mb-3">Akun Sosmed</h4>
+                    <ul class="space-y-2 text-xs text-neutral-500">
+                        <li><a class="hover:text-neutral-900 transition-colors flex items-center gap-1.5" href="#"><i
+                                    class="fab fa-instagram text-[10px]"></i> @artha.dhani</a></li>
+                        <li><a class="hover:text-neutral-900 transition-colors flex items-center gap-1.5" href="#"><i
+                                    class="fab fa-x-twitter text-[10px]"></i> @dhani</a></li>
+                        <li><a class="hover:text-neutral-900 transition-colors flex items-center gap-1.5" href="#"><i
+                                    class="fab fa-facebook-f text-[10px]"></i> /dhaniarta</a></li>
+                        <li><a class="hover:text-neutral-900 transition-colors flex items-center gap-1.5" href="#"><i
+                                    class="fab fa-youtube text-[10px]"></i> @dhanigaming69</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright & Legal Links -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-400 gap-4">
+                <p>&copy; 2026 Nama Lengkap Anda. Semua hak cipta dilindungi.</p>
+                <div class="flex items-center gap-6">
+                    <a class="hover:text-neutral-600 transition-colors" href="#">Syarat & Ketentuan</a>
+                    <a class="hover:text-neutral-600 transition-colors" href="#">Kebijakan Privasi</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END: FOOTER -->
+
+    <!-- Simple Mobile Menu Toggle Script -->
+    <script>
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            // Close menu on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+        }
+    </script>
+</body>
+
+</html>
